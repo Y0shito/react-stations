@@ -2,7 +2,7 @@
 
 // import * as React from 'react'
 
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import './App.css'
 
 /**
@@ -12,8 +12,15 @@ import './App.css'
 
 export const App = () => {
   const p = "犬の画像を表示するBBS";
-  // const setDogUrl = "https://images.dog.ceo/breeds/shiba/shiba-8.jpg";
+
   const [dogUrl, setDogUrl] = useState('https://images.dog.ceo/breeds/shiba/shiba-1.jpg');
+
+  const setImg = () => {
+    fetch('https://dog.ceo/api/breeds/image/random')
+      .then(res => res.json())
+      .then(data => setDogUrl(data.message));
+    return
+  }
 
   return (
     <div>
@@ -23,8 +30,8 @@ export const App = () => {
         src={dogUrl}
         alt="dog"
       />
-      <br/>
-      <button onClick={() => {setDogUrl('https://images.dog.ceo/breeds/shiba/shiba-8.jpg')}}>更新</button>
+      <br />
+      <button onClick={() => {setImg()}}>更新</button>
     </div>
   );
 }
