@@ -11,3 +11,13 @@ header {
   line-height: 50px;
   font-size: 25px;
 }
+
+.main {
+  padding: 20px 40px;
+}
+
+#root .container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

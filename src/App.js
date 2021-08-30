@@ -14,8 +14,10 @@ export const App = () => {
   return (
     <div>
       <Header title="DOG APP" />
-      <div>
-        <Description text="犬の画像を表示するアプリです" />
+      <div className="main">
+        <div className="container">
+          <Description text="犬の画像を表示するアプリです" />
+        </div>
       </div>
     </div>
   );

@@ -15,9 +15,9 @@ export const Description = (props) => {
 
   return (
     <>
-      <p>{props.text}</p>
-      <DogImage url={dogUrl} />
-      <button onClick={() => { setImg(); }}>更新</button>
+      <p className="p">{props.text}</p>
+      <DogImage className="img" url={dogUrl} />
+      <button className="button" onClick={() => { setImg(); }}>更新</button>
     </>
   )
 }
