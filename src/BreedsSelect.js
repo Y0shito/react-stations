@@ -2,13 +2,18 @@
 import * as React from 'react'
 
 export const BreedsSelect = (props) => {
-  const values = props.values;
+  const breeds = props.breeds;
+
+  const listItems = breeds.map((value) =>
+    <option key={value} value={value} text={value}>{value}</option>
+  )
 
   return (
-    <select name="breeds">
-      {values.map((value) =>
-        <option key={value} value={value}>{value}</option>
-      )}
-    </select>
+    <>
+      <select value={props.value} onChange={props.change}>
+        <option value="none">犬種を選択</option>
+        {listItems}
+      </select>
+    </>
   )
 }
