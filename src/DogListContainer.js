@@ -6,8 +6,7 @@ import { BreedsSelect } from './BreedsSelect';
 export const DogListContainer = () => {
   const [breeds, setBreeds] = useState([]);
   const [selectedBreed, setSelectedBreed] = useState('');
-
-  const handleChange = (e) => setSelectedBreed(e.target.value)
+  const [images, setImages] = useState([]);
 
   useEffect(() => {
     fetch('https://dog.ceo/api/breeds/list/all')
@@ -17,10 +16,27 @@ export const DogListContainer = () => {
       });
   }, [])
 
+  const listImages = images.map((image) =>
+    <img key={image} src={image} />
+  )
+
   return (
-    <BreedsSelect
-      breeds={breeds}
-      value={selectedBreed}
-      change={handleChange}
-    />)
+    <>
+      <BreedsSelect
+        breeds={breeds}
+        value={selectedBreed}
+        change={(e) => setSelectedBreed(e.target.value)}
+      />
+
+      <button onClick={() =>
+        fetch(`https://dog.ceo/api/breed/${selectedBreed}/images/random/12`)
+          .then(res => res.json())
+          .then(data => {
+            setImages(data.message);
+          })}>
+        画像を表示
+      </button>
+      {listImages}
+    </>
+  )
 }
