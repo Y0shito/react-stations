@@ -16,8 +16,47 @@ header {
   padding: 20px 40px;
 }
 
-#root .container {
+.container {
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  justify-content: center;
+}
+
+.container img {
+  width: 400px;
+  height: 300px;
+  object-fit: contain;
+  margin: 0 40px;
+}
+
+.container p {
+  flex-basis: auto;
+}
+
+.button {
+  text-align: right;
+  margin: 20px 0;
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.list select {
+  margin: 0 5px;
+}
+
+.images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.images img {
+  margin: 10px;
+  width: 400px;
+  height: 300px;
+  object-fit: contain;
 }

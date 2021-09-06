@@ -14,9 +14,13 @@ export const Description = (props) => {
 
   return (
     <>
-      <p className="p">{props.text}</p>
-      <DogImage className="img" url={dogUrl} />
-      <button className="button" onClick={() => { setImg(); }}>更新</button>
+      <div className="container">
+        <p className="p">{props.text}</p>
+        <DogImage className="img" url={dogUrl} />
+      </div>
+      <div className="button">
+        <button className="btn btn-primary" onClick={() => { setImg(); }}>更新</button>
+      </div>
     </>
   )
 }

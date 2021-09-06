@@ -22,21 +22,25 @@ export const DogListContainer = () => {
 
   return (
     <>
-      <BreedsSelect
-        breeds={breeds}
-        value={selectedBreed}
-        change={(e) => setSelectedBreed(e.target.value)}
-      />
+      <div className="list">
+        <BreedsSelect
+          breeds={breeds}
+          value={selectedBreed}
+          change={(e) => setSelectedBreed(e.target.value)}
+        />
 
-      <button onClick={() =>
-        fetch(`https://dog.ceo/api/breed/${selectedBreed}/images/random/12`)
-          .then(res => res.json())
-          .then(data => {
-            setImages(data.message);
-          })}>
-        画像を表示
-      </button>
-      {listImages}
+        <button className="btn btn-primary" onClick={() =>
+          fetch(`https://dog.ceo/api/breed/${selectedBreed}/images/random/12`)
+            .then(res => res.json())
+            .then(data => {
+              setImages(data.message);
+            })}>
+          画像を表示
+        </button>
+      </div>
+      <div className="images">
+        {listImages}
+      </div>
     </>
   )
 }

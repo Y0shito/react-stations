@@ -11,14 +11,22 @@ import { DogListContainer } from './DogListContainer'
  */
 
 export const App = () => {
+
+  const Border = ({ color }) => (
+    <hr
+      style={{
+        backgroundColor: color,
+        height: 2,
+      }}
+    />
+  );
+
   return (
     <div>
       <Header title="DOG APP" />
       <div className="main">
-        <div className="container">
-          <Description text="犬の画像を表示するアプリです" />
-        </div>
-        <br />
+        <Description text="犬の画像を表示するアプリです" />
+        <Border color="gray" />
         <DogListContainer />
       </div>
     </div>
